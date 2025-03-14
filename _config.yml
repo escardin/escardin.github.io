@@ -1,1 +1,4 @@
 remote_theme: hyde
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
