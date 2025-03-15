@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  flex-grow: 1;
+}
+
+html {
+  --sidebar-color: grey;
+  --sidebar-link-color: white;
+  --sidebar-background-color: indigo;
+  --main-unimportant-color: grey;
+  --main-background-color: #232323;
+  --main-color:#cdcdcd;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.25rem;
+  margin-bottom: 0.25rem;
+}
+
+a {
+  text-decoration: none;
+
+  &.active {
+    font-weight: bold;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background:var(--main-background-color);
+  color: var(--main-color);
+  padding: 1rem;
+  width: 100%;
+
+
+  time {
+    color: var(--main-unimportant-color);
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+footer {
+  color: var(--sidebar-color);
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-left: 0.5rem;
+}
+
+.sidebar {
+  color: var(--sidebar-color);
+  display: flex;
+  flex-direction: column;
+  font-size:1.2rem;
+  line-height: 1.5;
+  width: 18rem;
+  background-color: var(--sidebar-background-color);
+  min-height: 100%;
+  padding: 0.5rem 1rem;
+
+  flex-grow: 0;
+  flex-shrink: 0;
+  input {
+    display: none;
+  }
+  header {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  nav {
+    flex-grow: 1;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    color: var(--sidebar-link-color);
+  }
+}
+
+
+@media (max-width: 48rem) {
+  body {
+    flex-direction: column;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar header h1 {
+    display: inline-block;
+  }
+
+
+  /* move footer from sidebar to main */
+  .sidebar footer {
+    display: none;
+  }
+
+  main footer {
+    display: block
+  }
+
+  /* hamburger using spans */
+  #menuToggle {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    padding-top: 0.25rem;
+    margin-right: 1rem;
+  }
+
+
+
+  #menuToggle span {
+    display: block;
+    width: 90%;
+    height: 15%;
+    margin-top: 15%;
+    margin-left: 5%;
+    background: var(--sidebar-link-color);
+    border-radius: 0.3rem;
+  }
+
+  .sidebar input:checked#menuCheckbox+ nav {
+   display: block;
+  }
+  
+  .sidebar nav {
+    display: none;
+  }
+}

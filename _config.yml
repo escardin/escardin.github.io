@@ -1,4 +1,38 @@
-remote_theme: hyde
+permalink:           pretty
+sass:
+  sass_dir:          _sass
+  style:            compressed
+highlighter:      pygments
+title:            Lovelace Office
+url:              http://office.thelovelaces.ca
+baseurl:          "/"
+author:          'Hannah Lovelace'
+paginate:         5
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-gist
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .direnv
+  - .devenv
+  - .envrc
+  - devenv.lock
+  - devenv.nix
+  - devenv.yaml
+  - LICENSE
+  - CNAME
+
+

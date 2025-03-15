@@ -1,0 +1,45 @@
+<div class="sidebar">
+  
+  <header>
+    <label for="menuCheckbox" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>  
+    <h1>
+      <a href="{{ site.baseurl }}">
+        {{ site.title }}
+      </a>
+    </h1>
+  </header>
+  <input type="checkbox" id="menuCheckbox" />
+  <nav>
+    <ul>
+      <li>
+        <a{% if page.url==site.baseurl %} class="active" {% endif %} href="{{ site.baseurl }}">Home</a>
+      </li>
+
+      <li>Posts
+        <ul>
+          {% for node in site.posts %}
+          <li>
+            <a{% if page.url==node.url %} class="active" {% endif %} href="{{ node.url }}">{{ node.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% for node in site.pages %}
+      {% if node.layout == "page" %}
+      <li>
+        <a{% if page.url==node.url %} class="active" {% endif %} href="{{ node.url }}">{{ node.title }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+
+    </ul>
+  </nav>
+  <footer>
+    <p>&copy; {{ site.time | date: '%Y' }} Hannah Lovelace</p>
+  </footer>
+</div>
+
